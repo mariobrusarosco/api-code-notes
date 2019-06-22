@@ -1,0 +1,44 @@
+{
+  "name": "api-code-notes",
+  "version": "0.0.1",
+  "description": "API - Code Notes",
+  "scripts": {
+    "server": "node src/index.js",
+    "dev": "nodemon -r dotenv/config server/index.js",
+    "prod": "",
+    "cy-open": "cypress open",
+    "test": "jest",
+    "lint": "eslint src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn unit-test"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,css,yml}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/dist/*"
+    ]
+  },
+  "author": "Mario Brusarosco",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariobrusarosco/api-code-notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mariobrusarosco/api-code-notes/issues"
+  },
+  "homepage": "https://github.com/mariobrusarosco/api-code-notes#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

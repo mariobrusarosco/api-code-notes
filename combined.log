@@ -1,0 +1,270 @@
+{ message: 'Cannot read property \'test\' of undefined',
+  error: TypeError: Cannot read property 'test' of undefined
+    at Router.post (/var/www/html/code-notes/server/routes/auth/index.js:28:30)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/code-notes/node_modules/express/lib/router/route.js:112:3)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/code-notes/node_modules/express/lib/router/index.js:335:12)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/var/www/html/code-notes/node_modules/express/lib/router/index.js:174:3)
+    at router (/var/www/html/code-notes/node_modules/express/lib/router/index.js:47:12)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/var/www/html/code-notes/node_modules/express/lib/router/index.js:317:13)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:284:7,
+  level: 'error',
+  timestamp: '2019-06-09T15:04:23.258Z',
+  [Symbol(level)]: 'error' }
+{ message: 'Cannot read property \'test\' of undefined',
+  error: TypeError: Cannot read property 'test' of undefined
+    at Router.post (/var/www/html/code-notes/server/routes/auth/index.js:28:30)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/code-notes/node_modules/express/lib/router/route.js:112:3)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/code-notes/node_modules/express/lib/router/index.js:335:12)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/var/www/html/code-notes/node_modules/express/lib/router/index.js:174:3)
+    at router (/var/www/html/code-notes/node_modules/express/lib/router/index.js:47:12)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/var/www/html/code-notes/node_modules/express/lib/router/index.js:317:13)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:284:7,
+  level: 'error',
+  timestamp: '2019-06-09T15:04:52.261Z',
+  [Symbol(level)]: 'error' }
+{ message: 'Cannot read property \'test\' of undefined',
+  error: TypeError: Cannot read property 'test' of undefined
+    at Router.post (/var/www/html/code-notes/server/routes/auth/index.js:28:30)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/code-notes/node_modules/express/lib/router/route.js:112:3)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/code-notes/node_modules/express/lib/router/index.js:335:12)
+    at next (/var/www/html/code-notes/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/var/www/html/code-notes/node_modules/express/lib/router/index.js:174:3)
+    at router (/var/www/html/code-notes/node_modules/express/lib/router/index.js:47:12)
+    at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+    at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/var/www/html/code-notes/node_modules/express/lib/router/index.js:317:13)
+    at /var/www/html/code-notes/node_modules/express/lib/router/index.js:284:7,
+  level: 'error',
+  timestamp: '06-09-2019 12:05:44',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:06:43',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:07:01',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:07:22',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:652:30)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:07:42',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:08:05',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:08:37',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:15:47',
+  [Symbol(level)]: 'error' }
+{ message: 
+   { exception: Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3 },
+  level: 'error',
+  timestamp: '06-09-2019 12:16:27',
+  [Symbol(level)]: 'error' }
+{ Error: Testing !!
+    at Object.<anonymous> (/var/www/html/code-notes/server/index.js:15:7)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3
+  level: 'error',
+  timestamp: '06-09-2019 12:17:03',
+  [Symbol(level)]: 'error' }
+{ message: 'errorsMap is not defined',
+  error:
+   ReferenceError: errorsMap is not defined
+       at Router.get (/var/www/html/code-notes/server/routes/notes/index.js:41:16)
+       at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+       at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+       at next (/var/www/html/code-notes/node_modules/express/lib/router/route.js:137:13)
+       at Route.dispatch (/var/www/html/code-notes/node_modules/express/lib/router/route.js:112:3)
+       at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+       at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+       at /var/www/html/code-notes/node_modules/express/lib/router/index.js:281:22
+       at Function.process_params (/var/www/html/code-notes/node_modules/express/lib/router/index.js:335:12)
+       at next (/var/www/html/code-notes/node_modules/express/lib/router/index.js:275:10)
+       at Function.handle (/var/www/html/code-notes/node_modules/express/lib/router/index.js:174:3)
+       at router (/var/www/html/code-notes/node_modules/express/lib/router/index.js:47:12)
+       at newFn (/var/www/html/code-notes/node_modules/express-async-errors/index.js:16:20)
+       at Layer.handle [as handle_request] (/var/www/html/code-notes/node_modules/express/lib/router/layer.js:95:5)
+       at trim_prefix (/var/www/html/code-notes/node_modules/express/lib/router/index.js:317:13)
+       at /var/www/html/code-notes/node_modules/express/lib/router/index.js:284:7,
+  level: 'error',
+  timestamp: '06-15-2019 18:12:02',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt must be provided',
+  level: 'error',
+  timestamp: '06-15-2019 18:24:30',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 18:33:57',
+  [Symbol(level)]: 'error' }
+{ message: 'Note.find(...).populate(...).sIelect is not a function',
+  level: 'error',
+  timestamp: '06-15-2019 18:35:11',
+  [Symbol(level)]: 'error' }
+{ message: 'Note.find(...).populate(...).sIelect is not a function',
+  level: 'error',
+  timestamp: '06-15-2019 18:36:33',
+  [Symbol(level)]: 'error' }
+{ message: 'Note.find(...).populate(...).sIelect is not a function',
+  level: 'error',
+  timestamp: '06-15-2019 18:36:41',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 19:14:20',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 19:17:03',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 19:34:53',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 19:53:35',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 21:39:11',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 21:39:16',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-15-2019 21:39:52',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-16-2019 10:40:29',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-22-2019 13:42:37',
+  [Symbol(level)]: 'error' }
+{ message: 'jwt expired',
+  level: 'error',
+  timestamp: '06-22-2019 14:44:58',
+  [Symbol(level)]: 'error' }
