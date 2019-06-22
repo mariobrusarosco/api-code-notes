@@ -7,7 +7,7 @@ const assetsCompression = require('express-static-gzip')
 
 // App Setitngs
 const app = express()
-const config = require('../config')()
+const config = require('./config')
 
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 // require('./utils/uncaughtExceptions')
