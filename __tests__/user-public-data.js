@@ -1,4 +1,4 @@
-const { userPublicData, userPublicData2 } = require('../server/utils/User')
+const { userPublicData, userPublicData2 } = require('../src/utils/User')
 
 // Mock Data
 const mockDatabaseUser = {
