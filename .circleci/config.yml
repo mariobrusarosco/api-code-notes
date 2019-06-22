@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      # - image: circleci/node:10
-      - image: cypress/base:8
+      - image: circleci/node:10
     working_directory: ~/app
     steps:
       - checkout
@@ -15,28 +14,7 @@ jobs:
           command: yarn
       - run:
           name: Running Unit tests
-          command: yarn unit-test
-      - run:
-          name: Running E2E tests
-          command: yarn e2e-prod
-
-  deploy-prod:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Pushing to Heroku
-          command: git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_PROD_CODE_NOTES.git
-
-  deploy-dev:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Deploy 'development' to Heroku
-          command: git push  https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_CODE_NOTES.git
+          command: yarn test
 
 workflows:
   version: 2
@@ -49,22 +27,5 @@ workflows:
               only:
                 - development
                 - master
-            tags:
-              only: /^v.*/
-
-      - deploy-dev:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - development
-
-      - deploy-prod:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /^v.*/
