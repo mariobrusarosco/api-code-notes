@@ -1,8 +1,8 @@
 const logger = require('./logger')
 
-const uncaughtExceptions = (() => {
+const uncaughtExceptions = (async () => {
   process.on('uncaughtException', exception => {
-    logger.emerg(exception)
+    logger.error(exception)
   })
 })()
 

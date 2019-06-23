@@ -14,13 +14,20 @@ const config = require('./config')
 // Logging Async Errors
 require('express-async-errors')
 
-const logger = require('./utils/logger')
+require('./utils/logger')
 // Uncaught Exceptions Treatment
 require('./utils/uncaughtExceptions')
 
+process.on('unhandledRejection', exception => {
+  throw exception
+})
+
+// throw Error('Something failed')
+
+// const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
+//  .then(() => console.log('Done'))
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 
-throw new Error('Something failed')
 // --------------  DB --------------------- //--
 const mongoose = require('mongoose')
 
