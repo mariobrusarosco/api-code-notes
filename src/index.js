@@ -9,7 +9,7 @@ const app = express()
 const config = require('./config')
 
 // -------------- ERRORS HANDLING PROCESS --------------------- //
-const logger = require('./utils/logger')
+require('./utils/logger')
 
 // Logging Async Errors on Express Layer
 require('express-async-errors')
@@ -18,22 +18,12 @@ require('express-async-errors')
 require('./utils/unhandledRejection')
 
 // throw Error('Something failed')
-const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
+// const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
 //  .then(() => console.log('Done'))
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 
-// --------------  DB --------------------- //--
-const mongoose = require('mongoose')
-
-mongoose
-  .connect(process.env.DB_CREDENTIALS, { useNewUrlParser: true })
-  .then(() => {
-    console.log('Connected to a mongo DB')
-  })
-  .catch(error => {
-    new Error({ type: 'Mongo connection error', message: error })
-  })
-// --------------  DB --------------------- //
+// DB
+require('./db')()
 
 // --------------  MIDDLEWARES --------------------- //
 // Built In Middlewares
@@ -47,9 +37,6 @@ const morgan = require('morgan')
 app.use(morgan('tiny'))
 app.use(helmet())
 app.use(cookieParser())
-
-// Custom Middlewares
-const authorization = require('./middlewares/authorization')
 
 app.use(function(req, res, next) {
   // console.log('passed cookies in a request', req.cookies)
@@ -75,24 +62,12 @@ app.use(function(req, res, next) {
 // --------------  MIDDLEWARES --------------------- //
 
 // ROUTES
-const home = require('./routes/home')
-const auth = require('./routes/auth')
-const users = require('./routes/users')
-const me = require('./routes/me')
-const notes = require('./routes/notes')
-const modes = require('./routes/modes')
+require('./routes')(app)
 
-// app.use('/', home)
-app.use('/api/v1/auth', auth)
-app.use('/api/v1/users', users)
-app.use('/api/v1/me', me)
-app.use('/api/v1/notes', notes)
-app.use('/api/v1/modes', modes)
-
-// Handling errors related to Express, like errors happened in An Express Route
-const { expressErrorHandler } = require('./middlewares/express')
-
-app.use(expressErrorHandler)
+// Handling errors related to Express
+require('./middlewares/express')(app)
+// const { expressErrorHandler } = require('./middlewares/express')
+// app.use(expressErrorHandler)
 
 // if (process.env.NODE_ENV !== 'local') {
 // Serving assets like main.css or main.js

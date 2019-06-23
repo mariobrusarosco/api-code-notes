@@ -40,8 +40,8 @@ describe('Util Test', () => {
 -- Instead of
 --  expect(arrayTested).toContain('email')
 --  expect(arrayTested).toContain('facebook')
--- Use
 
+-- Use
 -- expect(arrayTested).toEqual(expect.arrayContaining(['email','facebook']))
           or
 -- expect((['email','facebook']).toEqual(expect.arrayContaining(arrayTested))
