@@ -9,22 +9,16 @@ const app = express()
 const config = require('./config')
 
 // -------------- ERRORS HANDLING PROCESS --------------------- //
-// require('./utils/uncaughtExceptions')
+const logger = require('./utils/logger')
 
-// Logging Async Errors
+// Logging Async Errors on Express Layer
 require('express-async-errors')
 
-require('./utils/logger')
 // Uncaught Exceptions Treatment
-require('./utils/uncaughtExceptions')
-
-process.on('unhandledRejection', exception => {
-  throw exception
-})
+require('./utils/unhandledRejection')
 
 // throw Error('Something failed')
-
-// const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
+const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
 //  .then(() => console.log('Done'))
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 
