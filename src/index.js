@@ -1,24 +1,17 @@
 const PORT = process.env.PORT || 9090
 const express = require('express')
 const cookieParser = require('cookie-parser')
-const path = require('path')
 const assetsCompression = require('express-static-gzip')
 
 // App Setitngs
 const app = express()
 const config = require('./config')
 
-// -------------- ERRORS HANDLING PROCESS --------------------- //
-require('./utils/logger')
-
-// Logging Async Errors on Express Layer
-require('express-async-errors')
-
-// Uncaught Exceptions Treatment
-require('./utils/unhandledRejection')
+// ERROR HANDLING PROCESS
+require('./logging')()
 
 // throw Error('Something failed')
-// const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
+const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
 //  .then(() => console.log('Done'))
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 
@@ -66,8 +59,6 @@ require('./routes')(app)
 
 // Handling errors related to Express
 require('./middlewares/express')(app)
-// const { expressErrorHandler } = require('./middlewares/express')
-// app.use(expressErrorHandler)
 
 // if (process.env.NODE_ENV !== 'local') {
 // Serving assets like main.css or main.js
