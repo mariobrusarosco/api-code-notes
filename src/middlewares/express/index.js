@@ -8,6 +8,4 @@ const expressErrorHandler = (error, req, res, next) => {
   res.status(500).send('Internal Failure')
 }
 
-module.exports = app => {
-  app.use(expressErrorHandler)
-}
+module.exports = expressErrorHandler
