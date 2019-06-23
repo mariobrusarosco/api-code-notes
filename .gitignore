@@ -4,8 +4,9 @@ dist
 build
 
 # Files
-.error.log
-.combined.log
+error.log
+combined.log
+crash.log
 
 .env
 npm-debug.log

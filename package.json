@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "API - Code Notes",
   "scripts": {
-    "server-dev": "node -r dotenv/config src/index.js",
-    "server-prod": "node src/index.js",
+    "server-prod": "nodemon src/index.js",
     "dev": "nodemon -r dotenv/config src/index.js",
     "prod": "",
     "cy-open": "cypress open",
@@ -40,8 +39,8 @@
   "homepage": "https://github.com/mariobrusarosco/api-code-notes#readme",
   "dependencies": {
     "babel-eslint": "^10.0.1",
-    "cookie-parser": "^1.4.4",
     "bcrypt": "^3.0.4",
+    "cookie-parser": "^1.4.4",
     "cypress": "^3.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
@@ -55,6 +54,7 @@
     "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.4.16",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
     "ramda": "^0.26.1",
     "winston": "3.0.0",
     "winston-mongodb": "3.0.0"

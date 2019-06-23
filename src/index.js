@@ -2,7 +2,6 @@ const PORT = process.env.PORT || 9090
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const path = require('path')
-const session = require('express-session')
 const assetsCompression = require('express-static-gzip')
 
 // App Setitngs
@@ -15,8 +14,13 @@ const config = require('./config')
 // Logging Async Errors
 require('express-async-errors')
 
+const logger = require('./utils/logger')
+// Uncaught Exceptions Treatment
+require('./utils/uncaughtExceptions')
+
 // -------------- ERRORS HANDLING PROCESS --------------------- //
 
+throw new Error('Something failed')
 // --------------  DB --------------------- //--
 const mongoose = require('mongoose')
 
@@ -92,18 +96,18 @@ app.use(expressErrorHandler)
 // if (process.env.NODE_ENV !== 'local') {
 // Serving assets like main.css or main.js
 // If this condition fits...code ends here!!
-app.use(
-  assetsCompression('dist', {
-    enableBrotli: true,
-    orderPreference: ['br']
-  })
-)
-app.use(express.static('dist'))
+// app.use(
+//   assetsCompression('dist', {
+//     enableBrotli: true,
+//     orderPreference: ['br']
+//   })
+// )
+// app.use(express.static('dist'))
 
 // If the server does not recognize a route... it's gonna serve index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'))
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'))
+// })
 // }
 
 // Listener
