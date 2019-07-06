@@ -1,7 +1,7 @@
 const express = require('express')
 const Router = express.Router()
 const jwt = require('jsonwebtoken')
-const logger = require('../../utils/logger')
+const { fileLogger } = require('../../utils/logger')
 
 // Project's Config
 const { errorsMap, USER_COOKIE_NAME } = require('../../config')
@@ -22,7 +22,7 @@ Router.get('/', async (req, res) => {
 
     if (!id) {
       // Logging
-      logger.error(`user '${id}' not found on Database`)
+      fileLogger.error(`user '${id}' not found on Database`)
 
       return res.send(400, errorsMap['D02'])
     }
@@ -34,7 +34,7 @@ Router.get('/', async (req, res) => {
     res.send(allNotes)
   } catch (err) {
     // Logging
-    logger.error(err.message)
+    fileLogger.error(err.message)
 
     return res.send(403, {
       name: 'InvalidToken',

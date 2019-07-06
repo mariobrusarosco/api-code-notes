@@ -1,23 +1,38 @@
 const { createLogger, format, transports, config } = require('winston')
-const { combine, timestamp, label, prettyPrint, json } = format
+const { combine, timestamp, colorize, prettyPrint, json } = format
 
-const logger = createLogger({
-  levels: config.syslog.levels,
-  format: combine(
-    timestamp({
-      format: 'MM-DD-YYYY HH:mm:ss'
-    }),
-    // json()
-    prettyPrint()
-  ),
+const logLevelsConfig = { levels: config.syslog.levels }
+
+const fileLogFormat = combine(
+  timestamp({
+    format: 'MM-DD-YYYY HH:mm:ss'
+  }),
+  json()
+)
+
+const consoleLogFormat = combine(
+  timestamp({
+    format: 'MM-DD-YYYY HH:mm:ss'
+  }),
+  prettyPrint({ colorize: true }),
+  colorize({ all: true })
+)
+
+const fileLogger = createLogger({
+  ...logLevelsConfig,
+  format: fileLogFormat,
   transports: [
     new transports.File({ filename: 'logs/emerg.log', level: 'emerg' }),
     new transports.File({ filename: 'logs/error.log', level: 'error' }),
     new transports.File({ filename: 'logs/combined.log' })
-    // new transports.Console({ level: 'error' }),
   ],
   exceptionHandlers: [new transports.File({ filename: 'logs/exceptions.log' })],
   exitOnError: false
 })
 
-module.exports = logger
+const consoleLogger = createLogger({
+  format: consoleLogFormat,
+  exceptionHandlers: [new transports.Console()]
+})
+
+module.exports = { fileLogger, consoleLogger }

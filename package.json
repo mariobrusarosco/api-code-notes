@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "API - Code Notes",
   "scripts": {
-    "server-prod": "nodemon src/index.js",
+    "server-prod": "nodemon -r dotenv/config src/index.js",
     "dev": "nodemon -r dotenv/config src/index.js",
     "prod": "",
     "cy-open": "cypress open",

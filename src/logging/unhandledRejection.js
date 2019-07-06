@@ -1,8 +1,9 @@
-const logger = require('../utils/logger')
+const { fileLogger, consoleLogger } = require('../utils/logger')
 
 const uncaughtExceptions = (() => {
   process.on('unhandledRejection', ex => {
-    logger.error(ex.message, ex)
+    fileLogger.error(ex.message, ex)
+    consoleLogger.error(ex.message, ex)
 
     setTimeout(() => {
       process.exit(1)

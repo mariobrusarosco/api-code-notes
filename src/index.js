@@ -6,9 +6,6 @@ const app = express()
 
 // ERROR HANDLING PROCESS
 require('./logging')()
-// throw Error('Something failed')
-// const p = Promise.reject(new Error('aaaaaaaaaaaaa'))
-//  .then(() => console.log('Done'))
 
 // App Setitngs
 const config = require('./config')
