@@ -1,11 +1,28 @@
 const Joi = require('joi')
 
+const mountValidation = function(validations) {
+  const arrayOfArguments = Array.prototype.slice.call(arguments)
+
+  const validationOptions = arrayOfArguments.reduce(
+    (obj, argument) => ({
+      ...obj,
+      ...argument
+    }),
+    {}
+  )
+
+  return dataToValidate => {
+    return Joi.validate(dataToValidate, validationOptions)
+  }
+}
+
 const email = {
   email: Joi.string()
     .min(7)
     .max(255)
     .required()
     .email()
+    .error(() => new Error('A08'))
 }
 
 const password = {
@@ -13,6 +30,7 @@ const password = {
     .min(6)
     .max(1024)
     .required()
+    .error(() => new Error('A07'))
 }
 
 const validateNewUser = req => {
@@ -80,9 +98,19 @@ const validateExistingUser = data => {
   return Joi.validate(data, validationOptions)
 }
 
+const validateReturningUser = reqBody => {
+  const validationOptions = {
+    ...email,
+    ...password
+  }
+
+  return Joi.validate(reqBody, validationOptions)
+}
+
 module.exports = {
   email,
   password,
   validateNewUser,
-  validateExistingUser
+  // validateExistingUser
+  mountValidation
 }

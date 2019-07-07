@@ -1,4 +1,5 @@
 // Errors started with A: related about User Verification
+// Errors started with B: related about Authorization, tokens and cookies
 const errorsMap = {
   A01: 'You must provide an authentication type',
   A02: 'You must provide a First Name',

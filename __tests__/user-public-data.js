@@ -60,3 +60,8 @@ describe('Util Test', () => {
 
 */
 // const { _id ,firstname, lastname, email, authType } = user
+
+/* Testing Exceptions
+
+expect(() => myFn().toThrow())
+*/
