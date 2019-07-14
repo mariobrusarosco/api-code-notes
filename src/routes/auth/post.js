@@ -15,7 +15,7 @@ const emailAndPasswordValidation = mountValidation(email, password)
 // Models
 const User = require('../../models/User')
 
-const POST = async (req, res, next) => {
+const post = async (req, res, next) => {
   const bodyContent = path(['body'], req)
 
   const { error } = emailAndPasswordValidation(bodyContent)
@@ -67,4 +67,4 @@ const POST = async (req, res, next) => {
   res.send(userToken)
 }
 
-module.exports = POST
+module.exports = post

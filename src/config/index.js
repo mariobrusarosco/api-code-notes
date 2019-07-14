@@ -1,12 +1,14 @@
 const options = {
   local: require('./local'),
   development: require('./development'),
-  production: require('./production'),
+  production: require('./production')
 }
 
+const activeENV = options[process.env.NODE_ENV]
+
 const appConfig = {
-  ...options[process.env.NODE_ENV],
-  ...require('./common'),
+  ...activeENV,
+  ...require('./common')
 }
 
 module.exports = appConfig

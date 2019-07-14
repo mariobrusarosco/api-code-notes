@@ -65,3 +65,16 @@ describe('Util Test', () => {
 
 expect(() => myFn().toThrow())
 */
+
+/* JEST Mock Functions
+
+-- Basic Example
+const mockFunction = jest.fn()
+
+mockFunction.mockeReturnedValue(1)
+mockFunction.mockResolvedValue(1) // As a Suceessful Promise
+mockFunction.mockRejectedValue(new Error(',,,')) // As a Rejected Promise
+
+console.log(mockFunction())  // 1
+
+*/
