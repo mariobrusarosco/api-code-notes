@@ -24,7 +24,7 @@ const hashPassword = async password => {
 // Models
 const User = require('../../models/User')
 
-Router.get('/', authorization, async (req, res) => {
+Router.get('/', async (req, res) => {
   const allUsers = await User.find()
 
   res.send(allUsers)
@@ -155,22 +155,6 @@ Router.post('/', async (req, res) => {
 // })
 
 module.exports = Router
-
-// Router.get('/', async (req, res) => {
-//   const allUsers = await User.find({
-//     isPublished: true,
-//     name: { $in: ['Walter White', 'Heisenberg'] },
-//     email: { $eq: 'ww@gmail.com' }
-//   })
-//     .limit(10)
-//     .sort({ name: 1 }) // 1 means 'ASC' and -1 means -1
-//     //.sort('name')
-//     .select({ name: 1, email: -1 })
-//   // simple select version
-// 	//.select('name -email')
-
-//   res.send(allUsers)
-// })
 
 // Using .validate() from mongoose
 // newUser.validate()
