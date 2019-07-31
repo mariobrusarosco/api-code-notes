@@ -4,16 +4,20 @@ const bycrpt = require('bcrypt')
 const { path } = require('ramda')
 
 // Project's Config
-const { errorsMap, USER_COOKIE_NAME, AUTHORIZATION_COOKIE_NAME } = require('../../config')
+const {
+  errorsMap,
+  USER_COOKIE_NAME,
+  AUTHORIZATION_COOKIE_NAME
+} = require('../../../config')
 
 // Setting Validation
-const { mountValidation, email, password } = require('../../utils/validations')
+const { mountValidation, email, password } = require('../../../utils/validations')
 
 // Creating a validation function
 const emailAndPasswordValidation = mountValidation(email, password)
 
 // Models
-const User = require('../../models/User')
+const User = require('../../../models/User')
 
 const post = async (req, res, next) => {
   const bodyContent = path(['body'], req)

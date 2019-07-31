@@ -1,7 +1,3 @@
-const GET_FROM_GOOGLE_CALLBACK = async (req, res, next) => {
-  // const bodyContent = path(['body'], req)
+const passport = require('passport')
 
-  res.send('google callback')
-}
-
-module.exports = GET_FROM_GOOGLE_CALLBACK
+module.exports = passport.authenticate('google')

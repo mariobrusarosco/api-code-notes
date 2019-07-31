@@ -70,14 +70,17 @@ Router.patch('/:id', authorization, async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
-  //  Validation Errors
+  /*
+   * Validation Errors
+   */
   const { error } = validateNewUser(req.body)
 
   if (error) {
     return res.status(400).send(errorsMap[error.message])
   }
-
-  // User already registered Validation
+  /*
+   * User already registered Validation
+   */
   const { email } = req.body
   const existingUser = await User.findOne({ email })
 
@@ -85,6 +88,9 @@ Router.post('/', async (req, res) => {
     return res.status(400).send(errorsMap['D01'])
   }
 
+  /*
+   * New User scenario
+   */
   const { firstname, lastname, password, authTypes } = req.body
 
   const hashedPassword = await hashPassword(password)

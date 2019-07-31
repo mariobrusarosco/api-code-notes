@@ -1,14 +1,21 @@
 const PORT = process.env.PORT || 9090
 const express = require('express')
-const assetsCompression = require('express-static-gzip')
-
+const cookieSession = require('cookie-session')
 const app = express()
+
+// App Setitngs
+const config = require('./config')
+
+// Routes Error Handler Middleware
+const expressErrorHandler = require('./middlewares/express')
 
 // ERROR HANDLING PROCESS
 require('./logging')()
 
-// App Setitngs
-const config = require('./config')
+// app.use(cookieSession({
+//   maxAge: 24 * 60 * 60 * 1000,
+//   keys: ['sdasdasdasdasdasd']
+// }))
 
 // DB
 require('./db')()
@@ -31,7 +38,9 @@ app.use(function(req, res, next) {
 })
 
 // ROUTES
-require('./routes')(app)
+app.use(require('./routes'))
+app.use(expressErrorHandler)
+// require('./routes')(app)
 
 // if (process.env.NODE_ENV !== 'local') {
 // Serving assets like main.css or main.js

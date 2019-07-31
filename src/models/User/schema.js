@@ -27,33 +27,38 @@ const userSchema = new mongoose.Schema({
     maxlength: 255
   },
   password: {
-    required: true,
+    // required: true,
     type: String,
     minlength: 6,
     maxlength: 1024
   },
+  username: String,
   authTypes: {
-    type: Array,
-    validate: {
-      validator: function(v) {
-        return v && v.length > 0
-      },
-      message: 'An user must have at least one type of authentication'
+    googleID: {
+      type: String,
+      default: null
+    },
+    faceboookID: {
+      type: String,
+      default: null
+    },
+    twitterID: {
+      type: String,
+      default: null
+    },
+    githubID: {
+      type: String,
+      default: null
     }
+  },
+  emailVerified: {
+    type: Boolean,
+    default: false
   },
   lastAccess: {
     type: Date,
     default: Date.now()
-  },
-  isPublished: Boolean,
-  // Conditional Validation
-  numberOfPurchases: {
-    type: Number,
-    required: function() {
-      return this.isPublished
-    }
-  },
-  username: String
+  }
 })
 
 userSchema.methods.generateAuthorizationToken = function() {
