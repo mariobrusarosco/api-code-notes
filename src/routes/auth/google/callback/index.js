@@ -1,3 +1,3 @@
-const passport = require('passport')
-
-module.exports = passport.authenticate('google')
+module.exports = (req, res) => {
+  res.redirect('/home')
+}

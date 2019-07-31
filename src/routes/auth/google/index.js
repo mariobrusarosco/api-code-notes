@@ -10,7 +10,6 @@ const { API_VERSION } = require('../../../config')
 const User = require('../../../models/User')
 
 passport.serializeUser((user, done) => {
-  console.log(user)
   done(null, user.id)
 })
 
@@ -46,31 +45,3 @@ passport.use(
 )
 
 module.exports = passport.authenticate('google', { scope: ['profile', 'email'] })
-
-// async function(accessToken, refreshToken, profile, done) {
-//   // console.log({ accessToken, refreshToken, profile })
-
-//   const firstname = profile.name.givenName
-//   const lastname = profile.name.familyName
-//   const email = profile.emails[0].value
-
-//   const existingUser = await User.findOne({ 'authTypes.googleID': profile.id })
-
-//   if (!existingUser) {
-//     const newUser = new User({
-//       firstname,
-//       lastname,
-//       email,
-//       password: null,
-//       authTypes: { googleID: profile.id }
-//     })
-
-//     // const result = await newUserViaGoogle(profile)
-//     const savedNewUser = await newUser.save()
-//     console.log({ savedNewUser })
-//   }
-
-//   console.log({existingUser})
-
-//   // done(null, existingUser)
-// }

@@ -6,7 +6,7 @@ const passport = require('passport')
 
 module.exports = app => {
   app.use(express.json())
-  // app.use(passport.initialize())
+  app.use(passport.initialize())
   // app.use(passport.session()())
   app.use(morgan('tiny'))
   app.use(helmet())
