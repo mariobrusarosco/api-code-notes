@@ -1,6 +1,5 @@
 const PORT = process.env.PORT || 9090
 const express = require('express')
-const cookieSession = require('cookie-session')
 const app = express()
 
 // App Setitngs
@@ -11,11 +10,6 @@ const expressErrorHandler = require('./middlewares/express')
 
 // ERROR HANDLING PROCESS
 require('./logging')()
-
-// app.use(cookieSession({
-//   maxAge: 24 * 60 * 60 * 1000,
-//   keys: ['sdasdasdasdasdasd']
-// }))
 
 // DB
 require('./db')()

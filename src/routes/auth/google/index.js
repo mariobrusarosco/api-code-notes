@@ -1,16 +1,22 @@
 // Vendors
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const passport = require('passport')
+const cookieSession = require('cookie-session')
 
-// Utils
-// const newUserViaGoogle = require('../../../../utils/signup/newUserViaGoogle')
 // Configuration
 const { API_VERSION } = require('../../../config')
+// Utils
+// const newUserViaGoogle = require('../../../../utils/signup/newUserViaGoogle')
+
 // Models
 const User = require('../../../models/User')
 
 passport.serializeUser((user, done) => {
   done(null, user.id)
+})
+
+passport.deserializeUser(async (id, done) => {
+  User.findById(id).then(user => done(null, user))
 })
 
 passport.use(
