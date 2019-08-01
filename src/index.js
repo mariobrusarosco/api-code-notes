@@ -54,4 +54,6 @@ app.use(expressErrorHandler)
 // }
 
 // Listener
-app.listen(PORT, () => console.log(`Serving Code Notes at ${PORT}`))
+app.listen(PORT, () =>
+  console.log(`Serving Code Notes at ${PORT} - ${process.env.NODE_ENV}`)
+)

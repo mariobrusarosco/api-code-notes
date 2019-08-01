@@ -4,7 +4,8 @@ const passport = require('passport')
 const cookieSession = require('cookie-session')
 
 // Configuration
-const { API_VERSION } = require('../../../config')
+const config = require('../../../config')
+const { GOOGLE_CALLBACK_URL } = config
 // Utils
 // const newUserViaGoogle = require('../../../../utils/signup/newUserViaGoogle')
 
@@ -24,7 +25,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${API_VERSION}/auth/google/callback`
+      callbackURL: GOOGLE_CALLBACK_URL
     },
     (accessToken, refreshToken, profile, done) => {
       const firstname = profile.name.givenName
