@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const joi = require('joi')
 const jwt = require('jsonwebtoken')
 
 // Utils
@@ -19,21 +18,23 @@ const userSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 50
   },
-  email: {
-    unique: true,
-    required: true,
-    type: String,
-    minlength: 7,
-    maxlength: 255
-  },
-  password: {
-    // required: true,
-    type: String,
-    minlength: 6,
-    maxlength: 1024
-  },
   username: String,
   authTypes: {
+    emailAndPassword: {
+      email: {
+        unique: true,
+        // required: true,
+        type: String,
+        minlength: 7,
+        maxlength: 255
+      },
+      password: {
+        // required: true,
+        type: String,
+        minlength: 6,
+        maxlength: 1024
+      }
+    },
     googleID: {
       type: String,
       default: null
