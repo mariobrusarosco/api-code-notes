@@ -28,7 +28,7 @@ Router.get('/', async (req, res) => {
     }
 
     const allNotes = await Note.find({ user: id })
-      .populate('related_notes')
+      .populate('related_notes', 'description')
       .select('description content language related_notes')
 
     res.send(allNotes)
