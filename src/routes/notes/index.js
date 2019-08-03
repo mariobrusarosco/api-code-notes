@@ -44,12 +44,12 @@ Router.get('/', async (req, res) => {
 })
 
 Router.post('/', authorization, async (req, res) => {
-  const { description, language, body, user, related_notes } = req.body
+  const { description, language, content, user, related_notes } = req.body
 
   const newNote = await new Note({
     description,
     language,
-    body,
+    content,
     user,
     related_notes
   })
