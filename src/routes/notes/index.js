@@ -14,7 +14,7 @@ const authorization = require('../../middlewares/authorization')
 
 Router.get('/', async (req, res) => {
   try {
-    // Access denied if an invalid cookie was passed
+    //Access denied if an invalid cookie was passed
     const token = req.cookies[USER_COOKIE_NAME] || ''
     // Decoding JWT stored in the 'USER_COOKIE_NAME'
     const decodeToken = jwt.verify(token, process.env.USER_TOKEN_SECRET)
@@ -29,7 +29,7 @@ Router.get('/', async (req, res) => {
 
     const allNotes = await Note.find({ user: id })
       .populate('related_notes', 'description')
-      .select('description language related_notes')
+      .select('description content language related_notes')
 
     res.send(allNotes)
   } catch (err) {
@@ -44,12 +44,12 @@ Router.get('/', async (req, res) => {
 })
 
 Router.post('/', authorization, async (req, res) => {
-  const { description, language, body, user, related_notes } = req.body
+  const { description, language, content, user, related_notes } = req.body
 
   const newNote = await new Note({
     description,
     language,
-    body,
+    content,
     user,
     related_notes
   })
