@@ -32,16 +32,20 @@ passport.use(
       const lastname = profile.name.familyName
       const email = profile.emails[0].value
 
-      User.findOne({ 'authTypes.googleID': profile.id }).then(existingUser => {
+      User.findOne({ 'authTypes.google.googleID': profile.id }).then(existingUser => {
         if (existingUser) {
+          config.log({ existingUser })
           done(null, existingUser)
         } else {
           new User({
             firstname,
             lastname,
-            email,
-            password: null,
-            authTypes: { googleID: profile.id }
+            authTypes: {
+              google: {
+                googleID: profile.id,
+                email
+              }
+            }
           })
             .save()
             .then(user => done(null, user))

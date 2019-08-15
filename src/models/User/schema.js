@@ -35,9 +35,18 @@ const userSchema = new mongoose.Schema({
         maxlength: 1024
       }
     },
-    googleID: {
-      type: String,
-      default: null
+    google: {
+      googleID: {
+        type: String,
+        default: null
+      },
+      email: {
+        unique: true,
+        // required: true,
+        type: String,
+        minlength: 7,
+        maxlength: 255
+      }
     },
     faceboookID: {
       type: String,
