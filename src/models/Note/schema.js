@@ -13,10 +13,6 @@ const NoteSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'User'
   },
-  // language: {
-  //   type: ObjectId,
-  //   ref: 'Language'
-  // },
   related_notes: {
     type: [ObjectId],
     ref: 'Note'
