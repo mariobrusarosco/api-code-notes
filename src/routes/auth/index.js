@@ -4,15 +4,13 @@ const Router = express.Router()
 const passport = require('passport')
 
 // ------- EMAIL AUTHENTICATION PROCESS
-// const POST_FOR_EMAIL_AUTHENTICATION = require('./post/')
-// POST
-// Router.post('/', POST_FOR_EMAIL_AUTHENTICATION)
+const POST_FOR_EMAIL_AUTHENTICATION = require('./post/')
+Router.post('/', POST_FOR_EMAIL_AUTHENTICATION)
 
 // ------- GOOGLE AUTHENTICATION PROCESS
 const GOOGLE = require('./google')
 const GOOGLE_CALLBACK = require('./google/callback')
 
-// GET
 Router.get('/google', GOOGLE)
 Router.get('/google/callback', passport.authenticate('google'), GOOGLE_CALLBACK)
 

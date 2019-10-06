@@ -42,7 +42,7 @@ passport.use(
             lastname,
             authTypes: {
               google: {
-                googleID: profile.id,
+                id: profile.id,
                 email
               }
             }

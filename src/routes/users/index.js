@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const Joi = require('joi')
+// const Joi = require('@hapi/joi')
 const R = require('ramda')
 
 // Project's Config
@@ -12,6 +12,7 @@ const authorization = require('../../middlewares/authorization')
 // Utils
 const { validateNewUser, validateExistingUser } = require('../../utils/validations')
 const { userPublicData } = require('../../utils/User')
+const { fileLogger, consoleLogger } = require('../../utils/logger')
 
 const hashPassword = async password => {
   const bcrypt = require('bcrypt')
@@ -76,13 +77,19 @@ Router.post('/', async (req, res) => {
   const { error } = validateNewUser(req.body)
 
   if (error) {
-    return res.status(400).send(errorsMap[error.message])
+    const defaultUserErrorMessage = errorsMap['A10']
+    const errorMessage = errorsMap[error.message] || defaultUserErrorMessage
+
+    fileLogger.error({ message: errorMessage, error })
+    consoleLogger.error({ message: errorMessage, error })
+
+    return res.status(400).send(errorMessage)
   }
   /*
    * User already registered Validation
    */
   const { email } = req.body
-  const existingUser = await User.findOne({ email })
+  const existingUser = await User.findOne({ 'authTypes.emailAndPassword.email': email })
 
   if (existingUser) {
     return res.status(400).send(errorsMap['D01'])
@@ -91,17 +98,22 @@ Router.post('/', async (req, res) => {
   /*
    * New User scenario
    */
-  const { firstname, lastname, password, authTypes } = req.body
+  const { firstname, lastname, password, username } = req.body
 
   const hashedPassword = await hashPassword(password)
 
   const newUser = new User({
     firstname,
     lastname,
+    username,
     email,
     password: hashedPassword,
-    authTypes
+    authTypes: {
+      emailAndPassword: { active: true, email }
+    }
   })
+
+  console.log(newUser)
 
   await newUser.save()
 

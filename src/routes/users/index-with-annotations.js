@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const Joi = require('joi')
+const Joi = require('@hapi/joi')
 
 // Utils
 const PromiseTryCatch = require('../../utils/PromiseTryCatch')

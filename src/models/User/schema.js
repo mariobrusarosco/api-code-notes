@@ -21,22 +21,24 @@ const userSchema = new mongoose.Schema({
   username: String,
   authTypes: {
     emailAndPassword: {
+      active: {
+        type: Boolean,
+        default: false
+      },
       email: {
         unique: true,
         // required: true,
         type: String,
         minlength: 7,
         maxlength: 255
-      },
-      password: {
-        // required: true,
-        type: String,
-        minlength: 6,
-        maxlength: 1024
       }
     },
     google: {
-      googleID: {
+      active: {
+        type: Boolean,
+        default: false
+      },
+      id: {
         type: String,
         default: null
       },
@@ -47,18 +49,6 @@ const userSchema = new mongoose.Schema({
         minlength: 7,
         maxlength: 255
       }
-    },
-    faceboookID: {
-      type: String,
-      default: null
-    },
-    twitterID: {
-      type: String,
-      default: null
-    },
-    githubID: {
-      type: String,
-      default: null
     }
   },
   emailVerified: {

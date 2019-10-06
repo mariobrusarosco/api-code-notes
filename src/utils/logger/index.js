@@ -32,6 +32,7 @@ const fileLogger = createLogger({
 
 const consoleLogger = createLogger({
   format: consoleLogFormat,
+  transports: [new transports.Console()],
   exceptionHandlers: [new transports.Console()]
 })
 

@@ -1,5 +1,5 @@
 // Vendors
-const Joi = require('joi')
+const Joi = require('@hapi/joi')
 const bycrpt = require('bcrypt')
 const { path } = require('ramda')
 

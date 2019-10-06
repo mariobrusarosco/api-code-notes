@@ -1,4 +1,4 @@
-const Joi = require('joi')
+const Joi = require('@hapi/joi')
 
 const mountValidation = function(validations) {
   const arrayOfArguments = Array.prototype.slice.call(arguments)
@@ -34,7 +34,7 @@ const password = {
 }
 
 const validateNewUser = req => {
-  const validationOptions = {
+  const validationOptions = Joi.object({
     firstname: Joi.string()
       .min(2)
       .max(25)
@@ -51,17 +51,19 @@ const validateNewUser = req => {
       .required()
       .email()
       .error(new Error('A08')),
+    username: Joi.string()
+      .max(255)
+      .error(new Error('A11')),
     password: Joi.string()
       .min(6)
       .max(50)
       .required()
       .error(new Error('A07')),
-    authTypes: Joi.array()
-      .required()
-      .error(new Error('A01'))
-  }
+    // repeat_password: Joi.ref('password'),
+    authTypes: Joi.object()
+  })
 
-  return Joi.validate(req, validationOptions)
+  return validationOptions.validate(req)
 }
 
 const validateExistingUser = data => {

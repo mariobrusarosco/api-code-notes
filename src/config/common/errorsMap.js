@@ -10,7 +10,9 @@ const errorsMap = {
   A07: 'This email is already in use. Please choose another one',
   A08: 'An User ID is required',
   A09: 'User not Found',
-  A10: '',
+  A10:
+    'Ops! It was not possible to create a new user. Please, try again later or contact the support',
+  A11: 'Invalid Username',
   B01: 'No Provided Token',
   B02: 'Invalid Token',
   D01: 'This email is already registered. Please try a diferent one',
