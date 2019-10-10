@@ -27,10 +27,16 @@ const userSchema = new mongoose.Schema({
       },
       email: {
         unique: true,
-        // required: true,
+        required: true,
         type: String,
         minlength: 7,
         maxlength: 255
+      },
+      password: {
+        required: true,
+        type: String,
+        minlength: 6,
+        maxlength: 1024
       }
     },
     google: {
@@ -44,7 +50,54 @@ const userSchema = new mongoose.Schema({
       },
       email: {
         unique: true,
-        // required: true,
+        type: String,
+        minlength: 7,
+        maxlength: 255
+      }
+    },
+    facebook: {
+      active: {
+        type: Boolean,
+        default: false
+      },
+      id: {
+        type: String,
+        default: null
+      },
+      email: {
+        unique: true,
+        type: String,
+        minlength: 7,
+        maxlength: 255
+      }
+    },
+    twitter: {
+      active: {
+        type: Boolean,
+        default: false
+      },
+      id: {
+        type: String,
+        default: null
+      },
+      email: {
+        unique: true,
+        type: String,
+        minlength: 7,
+        maxlength: 255
+      }
+    },
+    github: {
+      active: {
+        type: Boolean,
+        default: false
+      },
+      id: {
+        type: String,
+        default: null
+      },
+      email: {
+        unique: true,
         type: String,
         minlength: 7,
         maxlength: 255

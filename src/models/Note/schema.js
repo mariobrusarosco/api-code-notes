@@ -6,9 +6,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 const NoteSchema = new mongoose.Schema({
   description: String,
-  language: String,
+  topic: {
+    type: ObjectId,
+    ref: 'Topic'
+  },
   content: String,
-  // Population Example
   user: {
     type: ObjectId,
     ref: 'User'
@@ -16,7 +18,8 @@ const NoteSchema = new mongoose.Schema({
   related_notes: {
     type: [ObjectId],
     ref: 'Note'
-  }
+  },
+  active: Boolean
 })
 
 module.exports = NoteSchema

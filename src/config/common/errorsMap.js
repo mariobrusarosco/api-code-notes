@@ -15,7 +15,10 @@ const errorsMap = {
   A11: 'Invalid Username',
   B01: 'No Provided Token',
   B02: 'Invalid Token',
-  D01: 'This email is already registered. Please try a diferent one',
+  D01: {
+    debug: 'Ops! We could not create your notes',
+    user: 'Empty array of Notes'
+  },
   D02: 'Ops! We could not retrieve your notes'
 }
 
