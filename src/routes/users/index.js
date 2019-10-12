@@ -71,14 +71,14 @@ Router.patch('/:id', authorization, async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
+  const body = R.pathOr({}, ['body'], req)
   /*
    * Validation Errors
    */
-  const { error } = validateNewUser(req.body)
+  const { error } = validateNewUser(body)
 
   if (error) {
-    const defaultUserErrorMessage = errorsMap['A10']
-    const errorMessage = errorsMap[error.message] || defaultUserErrorMessage
+    const errorMessage = errorsMap[error.message]
 
     fileLogger.error({ message: errorMessage, error })
     consoleLogger.error({ message: errorMessage, error })
@@ -88,17 +88,18 @@ Router.post('/', async (req, res) => {
   /*
    * User already registered Validation
    */
-  const { email } = req.body
+  const { email } = body
+
   const existingUser = await User.findOne({ 'authTypes.emailAndPassword.email': email })
 
   if (existingUser) {
-    return res.status(400).send(errorsMap['D01'])
+    return res.status(400).send(errorsMap['A07'])
   }
 
   /*
    * New User scenario
    */
-  const { firstname, lastname, password, username } = req.body
+  const { password, firstname, lastname, username } = body
 
   const hashedPassword = await hashPassword(password)
 
@@ -106,14 +107,14 @@ Router.post('/', async (req, res) => {
     firstname,
     lastname,
     username,
-    email,
-    password: hashedPassword,
     authTypes: {
-      emailAndPassword: { active: true, email }
+      emailAndPassword: {
+        active: true,
+        email,
+        password: hashedPassword
+      }
     }
   })
-
-  console.log(newUser)
 
   await newUser.save()
 

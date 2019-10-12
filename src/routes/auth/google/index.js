@@ -27,30 +27,35 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: GOOGLE_CALLBACK_URL
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       const firstname = profile.name.givenName
       const lastname = profile.name.familyName
       const email = profile.emails[0].value
 
-      User.findOne({ 'authTypes.google.googleID': profile.id }).then(existingUser => {
-        if (existingUser) {
-          config.log({ existingUser })
-          done(null, existingUser)
-        } else {
-          new User({
-            firstname,
-            lastname,
-            authTypes: {
-              google: {
-                id: profile.id,
-                email
-              }
+      const existingUser = await User.findOne({ 'authTypes.google.id': profile.id })
+
+      if (existingUser) {
+        console.log({ existingUser })
+        done(null, existingUser)
+      } else {
+        const newUser = await User({
+          firstname,
+          lastname,
+          authTypes: {
+            google: {
+              id: profile.id,
+              email,
+              active: true
             }
-          })
-            .save()
-            .then(user => done(null, user))
-        }
-      })
+          }
+        })
+        console.log('new user', newUser)
+
+        const savedUser = await newUser.save()
+        done(null, savedUser)
+        //     .save()
+        //     .then(user => done(null, user))
+      }
     }
   )
 )

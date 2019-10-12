@@ -1,5 +1,7 @@
 // Errors started with A: related about User Verification
 // Errors started with B: related about Authorization, tokens and cookies
+// Errors started with C: ...
+// Errors started with D: ...
 const errorsMap = {
   A01: 'You must provide an authentication type',
   A02: 'You must provide a First Name',
@@ -7,7 +9,10 @@ const errorsMap = {
   A04: 'You must provide an User Name',
   A05: 'Your password must have at least 6 digits',
   A06: 'Invalid Email or Password',
-  A07: 'This email is already in use. Please choose another one',
+  A07: {
+    debug: 'existing user',
+    user: 'This email is already in use. Please choose another one'
+  },
   A08: 'An User ID is required',
   A09: 'User not Found',
   A10:

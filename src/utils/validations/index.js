@@ -35,6 +35,9 @@ const password = {
 
 const validateNewUser = req => {
   const validationOptions = Joi.object({
+    authTypes: Joi.string()
+      .required()
+      .error(new Error('A01')),
     firstname: Joi.string()
       .min(2)
       .max(25)
@@ -58,9 +61,8 @@ const validateNewUser = req => {
       .min(6)
       .max(50)
       .required()
-      .error(new Error('A07')),
+      .error(new Error('A07'))
     // repeat_password: Joi.ref('password'),
-    authTypes: Joi.object()
   })
 
   return validationOptions.validate(req)
