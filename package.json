@@ -54,7 +54,7 @@
     "husky": "^2.2.0",
     "jest": "^24.8.0",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.16",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
