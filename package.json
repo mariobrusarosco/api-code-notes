@@ -1,6 +1,6 @@
 {
   "name": "api-code-notes",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "API - Code Notes",
   "scripts": {
     "server-prod": "nodemon -r dotenv/config src/index.js",
