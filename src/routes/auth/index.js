@@ -1,17 +1,14 @@
-// Vendors and Libs
 const express = require('express')
-const Router = express.Router()
 const passport = require('passport')
+const Router = express.Router()
 
-// ------- EMAIL AUTHENTICATION PROCESS
-const POST_FOR_EMAIL_AUTHENTICATION = require('./post/')
-Router.post('/', POST_FOR_EMAIL_AUTHENTICATION)
+const EmailAndPassword = require('./email-and-password')
+Router.post('/email', EmailAndPassword)
 
-// ------- GOOGLE AUTHENTICATION PROCESS
-const GOOGLE = require('./google')
-const GOOGLE_CALLBACK = require('./google/callback')
+const GoogleAuth = require('./google')
+const GoogleAuthCallback = require('./google/callback')
 
-Router.get('/google', GOOGLE)
-Router.get('/google/callback', passport.authenticate('google'), GOOGLE_CALLBACK)
+Router.get('/google', GoogleAuth)
+Router.get('/google/callback', passport.authenticate('google'), GoogleAuthCallback)
 
 module.exports = Router

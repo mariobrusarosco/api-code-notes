@@ -12,10 +12,10 @@ const auth = require('./auth')
 const modes = require('./modes')
 
 Router.use(`${API_VERSION}/users`, users)
-Router.use(`${API_VERSION}/auth`, auth)
 Router.use(`${API_VERSION}/notes`, notes)
 // Router.use(`${API_VERSION}/me`, require('./me'))
 // Router.use(`${API_VERSION}/logout`, require('./logout'))
 // Router.use(`${API_VERSION}/modes`, modes)
+Router.use('/auth', auth)
 
 module.exports = Router

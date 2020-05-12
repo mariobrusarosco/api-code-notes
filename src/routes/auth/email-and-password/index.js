@@ -19,7 +19,7 @@ const emailAndPasswordValidation = mountValidation(email, password)
 // Models
 const User = require('../../../models/User')
 
-const post = async (req, res, next) => {
+const EmailAndPassword = async (req, res, next) => {
   const bodyContent = path(['body'], req)
 
   const { error } = emailAndPasswordValidation(bodyContent)
@@ -29,26 +29,19 @@ const post = async (req, res, next) => {
   }
 
   const { email, password } = req.body
-  /*
-   * Exisitng User Verification
-   */
+
   const returningUser = await User.findOne({ email })
 
   if (!returningUser) {
     return res.status(400).send(errorsMap['A06'])
   }
-  /*
-   * Password Verification
-   */
+
   const returningUserPassword = await bycrpt.compare(password, returningUser.password)
 
   if (!returningUserPassword) {
     return res.status(400).send(errorsMap['A06'])
   }
 
-  /*
-   * Authorization Process
-   */
   const AuthorizationToken = returningUser.generateAuthorizationToken()
 
   res.cookie(AUTHORIZATION_COOKIE_NAME, AuthorizationToken, {
@@ -57,9 +50,6 @@ const post = async (req, res, next) => {
     // httpOnly: true
   })
 
-  /*
-   * User Identification Process
-   */
   const userToken = returningUser.generateUserIdToken()
 
   res.cookie(USER_COOKIE_NAME, userToken, {
@@ -71,4 +61,4 @@ const post = async (req, res, next) => {
   res.send(userToken)
 }
 
-module.exports = post
+module.exports = EmailAndPassword

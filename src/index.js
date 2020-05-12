@@ -1,7 +1,6 @@
 const PORT = process.env.PORT || 9090
 const express = require('express')
 const app = express()
-
 // App Setitngs
 const config = require('./config')
 
@@ -18,7 +17,8 @@ require('./db')()
 require('./middlewares')(app)
 
 app.use(function(req, res, next) {
-  // console.log('passed cookies in a request', req.cookies)
+  //   console.log(config.AccessControlAllowOrigin)
+  //   // console.log('passed cookies in a request', req.cookies)
 
   res.header('Access-Control-Allow-Origin', config.AccessControlAllowOrigin)
   res.header(
@@ -34,7 +34,6 @@ app.use(function(req, res, next) {
 // ROUTES
 app.use(require('./routes'))
 app.use(expressErrorHandler)
-// require('./routes')(app)
 
 // if (process.env.NODE_ENV !== 'local') {
 // Serving assets like main.css or main.js
